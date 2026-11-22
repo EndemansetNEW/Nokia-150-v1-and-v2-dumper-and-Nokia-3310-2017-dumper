@@ -20,7 +20,7 @@ Handshake OK! Disabling watchdog & mapping SPI flash...
 Detected exact flash boundary at 4 MB! Stopping cleanly.
 Done! Saved Nokia150v1_RAW.bin
 
-C:\Users\Endemanset (Gooner)\Downloads\mtk_dump-win64>python clean_mtk_dump.py Nokia150v1_RAW.bin 359000099270875 350000099750826
+C:\Users\Endemanset (Gooner)\Downloads\mtk_dump-win64>python clean_mtk_dump.py Nokia150v1_RAW.bin "put imei 1 here"  "put imei 2 here"
 Detected: Model=UNKNOWN | Version=40.00.11 | ProductCode=059X998 | Size=4MB
   Wiping writable FAT/NVRAM partition from 0x00210000 to 0x00400000
 Saved: UNKNOWN_059X998_40.00.11_CLEAN.bin (and private UNKNOWN_059X998_40.00.11_PERSONAL_FULL.bin)
