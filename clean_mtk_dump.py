@@ -18,14 +18,19 @@ data = bytearray(struct.pack(f"<{len(words)}I", *words))
 
 assert data[:7] == b"SF_BOOT", f"Invalid header: {data[:16]}"
 
-# 2. Auto-detect model, software version, and Product Code
+# 2. Auto-detect model (ASCII or UTF-16LE), software version, and Product Code
 model_m = re.search(b"(?:TA|RM)-\\d{4}", data)
+if not model_m:
+    u16_m = re.search(b"(?:T\x00A\x00|R\x00M\x00)-\x00(?:\\d\x00){4}", data)
+    model = u16_m.group(0).decode("utf-16le") if u16_m else "UNKNOWN"
+else:
+    model = model_m.group(0).decode("ascii")
+
 ver_m = re.search(b"\\d{2}\\.\\d{2}\\.\\d{2}", data)
 code_m = re.search(b"(?:059[0-9A-Z]{4}|23G[0-9A-Z]{8})", data)
 
-model = model_m.group(0).decode() if model_m else "UNKNOWN"
-ver = ver_m.group(0).decode() if ver_m else "00.00.00"
-code = code_m.group(0).decode() if code_m else "NOCODE"
+ver = ver_m.group(0).decode("ascii") if ver_m else "00.00.00"
+code = code_m.group(0).decode("ascii") if code_m else "NOCODE"
 
 print(f"Detected: Model={model} | Version={ver} | ProductCode={code} | Size={len(data)//(1024*1024)}MB")
 
@@ -40,6 +45,9 @@ def imei_to_bcd(imei):
     return bytes((int(padded[i+1], 16) << 4) | int(padded[i], 16) for i in range(0, 16, 2))
 
 for imei in imeis:
+    if not imei.isdigit() or len(imei) != 15:
+        print(f"  Skipping non-15-digit argument: {imei}")
+        continue
     for pat, label in [(imei.encode("ascii"), "ASCII"), (imei_to_bcd(imei), "BCD")]:
         idx = 0
         while (idx := data.find(pat, idx)) != -1:
