@@ -8,6 +8,7 @@ and run python dumpnokia150.py / dumpnokia33102017.py (for your device)
 then run clean_mtk_dump.py to get both clean and personal dumps
 ------------------------------------------------------------------------------------------------------------------------
 example :
+```sh
 C:\Users\Endemanset (Gooner)\Downloads\mtk_dump-win64>python dumpnokia150.py
 Waiting for Nokia USB Serial Port on COM6... Plug in powered-off Nokia 150 v1 now.
 Connected to COM6! Sending MT6260 BootROM handshake...
@@ -25,3 +26,4 @@ Detected: Model=UNKNOWN | Version=40.00.11 | ProductCode=059X998 | Size=4MB
 Saved: UNKNOWN_059X998_40.00.11_CLEAN.bin (and private UNKNOWN_059X998_40.00.11_PERSONAL_FULL.bin)
 
 C:\Users\Endemanset (Gooner)\Downloads\mtk_dump-win64>
+```
