@@ -1,4 +1,4 @@
-# Nokia-150-v1-and-v2-dumper-and-Nokia-3310-2017-dumper
+# Nokia-Firmware-Dumper-for-MediaTek-S30-Nokia-Devices
 
 BootROM SPI NOR flash dumper and IMEI/NVRAM sanitizer for MediaTek Series 30+ Nokia feature phones:
 - **Nokia 3310 (2017)** (`TA-1030` — MT6260A, 16MB)
