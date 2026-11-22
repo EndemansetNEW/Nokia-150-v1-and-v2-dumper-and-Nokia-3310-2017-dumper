@@ -6,6 +6,7 @@ have pyserial installed
 
 and run python dumpnokia150.py / dumpnokia33102017.py (for your device)
 then run clean_mtk_dump.py to get both clean and personal dumps
+------------------------------------------------------------------------------------------------------------------------
 example :
 C:\Users\Endemanset (Gooner)\Downloads\mtk_dump-win64>python dumpnokia150.py
 Waiting for Nokia USB Serial Port on COM6... Plug in powered-off Nokia 150 v1 now.
