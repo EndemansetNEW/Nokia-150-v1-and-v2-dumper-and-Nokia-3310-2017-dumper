@@ -52,3 +52,6 @@ Detected: Model=UNKNOWN | Version=40.00.11 | ProductCode=059X998 | Size=4MB
   Wiping writable FAT/NVRAM partition from 0x00210000 to 0x00400000
 Saved: UNKNOWN_059X998_40.00.11_CLEAN.bin (and private UNKNOWN_059X998_40.00.11_PERSONAL_FULL.bin)
 ```
+Remember : 
+- replace 350000000000000 and 350000000000001 with your actual IMEI(s)
+  
